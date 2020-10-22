@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div data-div-name="1" name="2">
+
+    </div>
+    <script>
+        var div = document.querySelector('div');
+
+        // 获取元素对象自定义属性（自己添加上去的非固有属性）
+        console.log(div.getAttribute('data-div-name'));
+        console.log(div.getAttribute('name'));
+
+        // 利用h5新增dateset，只能获取以data开头的驼峰命名法
+        console.log(div.dataset['divName']);
+        console.log(div.dataset.divName);
+    </script>
+</body>
+</html>

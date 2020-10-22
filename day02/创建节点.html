@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>123</li>
+    </ul>
+    <script>
+        var ul = document.querySelector('ul')
+        // 创建节点
+        var li1 = document.createElement('li')
+        var li2 = document.createElement('li')
+        li1.innerText='我是加在尾部的'
+        li2.innerText='我是加在首部的'
+        // 添加节点，父元素的孩子尾部追加元素,创建的元素可以用来操作元素
+        ul.appendChild(li1);
+
+        // 页面的某个存在的元素也可以用来操作
+        ul.appendChild(ul.children[0])
+
+        // 添加节点，父元素的某个孩子前面追加元素
+        ul.insertBefore(li2,ul.children[0])
+    </script>
+</body>
+
+</html>

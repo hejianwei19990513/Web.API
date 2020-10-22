@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            border: 1px solid red;
+        }
+        .change {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <button>变红</button>
+    <button>变绿</button>
+    <div></div>
+    <script>
+        var btn = document.querySelectorAll('button');
+        var div = document.querySelector('div')
+        btn[0].onclick = function () {
+            div.style.backgroundColor = 'red'
+        }
+        // 【注意】这里上面是行内式，下面权重没行内式高，所以不会变绿，所以作用于同一元素时要使用相同的改变元素属性方法
+        btn[1].onclick = function() {
+            // div.className = 'change'
+            // 所以用下面代码
+            div.style.backgroundColor = 'green'
+        }
+        
+    </script>
+</body>
+</html>

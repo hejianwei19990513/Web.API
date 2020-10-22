@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>小鞠女神1</li>
+        <li>小鞠女神2</li>
+        <li>小鞠女神3</li>
+        <li>小鞠女神4</li>
+    </ul>
+    <ol id="ol">
+        <li>小鞠女神11</li>
+        <li>小鞠女神12</li>
+        <li>小鞠女神13</li>
+        <li>小鞠女神14</li>
+    </ol>
+    <ol>
+        <li>小鞠女神100</li>
+    </ol>
+    <script>
+        // 1.返回的是获取过来元素对象的集合 以伪数组的形式存储
+        var lis = document.getElementsByTagName('li');
+        console.log(lis);
+        console.log(lis[0]);
+        // (遍历li对象)
+        for (var i = 0 ; i < lis.length ; i++) {
+            console.log(lis[i]);
+        }
+        // 如果元素没有任何内容，则返回空数组形式的伪数组
+        // 第一种方法：
+        /* var ol = document.getElementsByTagName('ol');
+        console.log(ol[0].getElementsByTagName('li')); */
+
+        // 第二种方法：给ol设置id名：
+        // Element.getElementsByTagName('标签名');
+        /* var ol = document.getElementById('ol').getElementsByTagName('li')
+        console.log(ol); */
+
+        // 获取第二组ol里面的li
+        var ol_01 = document.getElementsByTagName('ol');
+            ol_01_lis = ol_01[1].getElementsByTagName('li')
+            console.log(ol_01_lis);
+    </script>
+</body>
+</html>

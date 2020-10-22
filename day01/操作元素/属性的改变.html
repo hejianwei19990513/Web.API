@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            display: block;
+            width: 400px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <button>女神1</button>
+    <button>女神2</button>
+    <img src="../../../女神高清壁纸/face-to-face.jpg" alt="">
+    <script>
+        var oBtn1=document.querySelector('button')
+        var oBtn2=document.querySelector('button:nth-child(2)')
+        var img=document.querySelector('img')
+        oBtn1.onclick = function () {
+            img.src = '../../../女神高清壁纸/face-to-face.jpg'
+            img.title = 'face-to-face'
+            img.style.width='600px'
+            img.style.height='600px'
+        }
+        oBtn2.onclick = function () {
+            img.src = '../../../女神高清壁纸/very nice .jpg'
+            img.title = 'very nice'
+        }
+    </script>
+</body>
+</html>

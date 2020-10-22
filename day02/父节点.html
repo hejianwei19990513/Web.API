@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            border: 2px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <span class="span">
+            点击一下
+        </span>
+    </div>
+    <script>
+        var span = document.querySelector('.span')
+        span.onclick = function() {
+
+            // 通过父节点找到span的父盒子div,可以少声明一些变量
+            span.parentNode.style.display = 'none'
+            console.log(span.parentNode);
+        }
+    </script>
+</body>
+</html>

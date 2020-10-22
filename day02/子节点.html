@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+    <script>
+        var ul = document.querySelector('ul')
+
+        // 获取子节点中所有节点，包括文本节点
+        console.log(ul.childNodes[0]);
+
+
+        // 获取子节点中的元素节点,常用
+        console.log(ul.children[0]);
+
+        // 获取子节点中元素节点的第一个孩子,ie9+才支持
+        console.log(ul.firstElementChild);
+        //或者
+        console.log(ul.children[0]);
+
+        // 获取子节点中元素节点的最后一个孩子,ie9+才支持
+        console.log(ul.lastElementChild);
+        //或者
+        console.log(ul.children[ul.children.length-1]);
+    </script>
+</body>
+</html>

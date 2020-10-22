@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>女神</button>
+    <script>
+        // 事件三要素：事件源。事件类型，事件处理程序
+        // 1.事件源：
+        var but = document.querySelector('button')
+        var img = document.querySelector('img')
+        // 2.事件类型：onclick
+        // 3.事件处理程序：
+        // 第一种匿名函数
+        function fn() {
+            console.log('鞠婧祎');
+        }
+        but.onclick = fn//(这里不能加括号，加括号表示调用，fn（）表示返回值，返回的是undefined)
+
+        // 第二种具名函数
+        // but.onclick = function() {
+        //     console.log('鞠婧祎');
+        // }
+    </script>
+</body>
+</html>

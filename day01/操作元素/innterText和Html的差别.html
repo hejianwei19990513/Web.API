@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 设置的时候 innerHTML会解析标签，innerText则不会 -->
+    <div>
+        <p>小鞠女神</p>
+    </div>
+    <script>
+        var div = document.querySelector('div');
+        console.log(div.innerHTML);
+        console.log(div.innerText);
+    </script>
+</body>
+</html>

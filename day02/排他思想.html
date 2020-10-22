@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button num="0">按钮1</button>
+    <button num="1">按钮2</button>
+    <button num="2">按钮3</button>
+    <button num="3">按钮4</button>
+    <button num="4">按钮5</button>
+    <script>
+        var btn = document.querySelectorAll('button')
+        var arr = ['pink','red','purple','blue','skyblue']
+        for (var i = 0 ; i < btn.length ; i++) {
+            btn[i].num = i;
+            btn[i].onclick=function() {
+                for (var j = 0 ; j < btn.length ; j++) {
+                    btn[j].style.backgroundColor = ''
+                }
+                this.style.backgroundColor = arr[this.num];
+                // console.log(num);
+            }
+            // console.log(num);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+    <span></span>
+    <script>
+        var div = document.querySelector('div')
+        // 找div的下一个兄弟节点。包括文本节点
+        console.log(div.nextSibling.nextSibling);
+
+        // 找div的下一个兄弟元素节点，ie9+才支持
+        console.log(div.nextElementSibling);
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            width: 200px;
+            height: 50px;
+            outline: none;
+        }
+        div {
+            display: inline;
+        }
+    </style>
+</head>
+<body>
+    <input type="password" value="">
+    <div></div>
+    <script>
+        var input = document.querySelector('input')
+        var div   = document.querySelector('div')
+        input.onblur = function() {
+            if(input.value.length>=8 && input.value.length<=16) {
+                div.innerHTML = '输入正确'
+            }
+            else {
+                div.innerHTML = '输入错误，请输入8-16位密码'
+            }
+        }
+    </script>
+</body>
+</html>
