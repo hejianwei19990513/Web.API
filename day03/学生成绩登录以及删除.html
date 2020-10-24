@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        table {
+            margin-top: 10px;
+            width: 400px;
+            background-color: purple;
+        }
+        td  {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <span>请输入姓名：</span>
+        <input type="text">
+    </div>
+    <div>
+        <span>请输入科目：</span>
+        <input type="text">
+    </div>
+    <div>
+        <span>请输入成绩：</span>
+        <input type="text">
+    </div>
+    <button>添加</button>
+    <table border="1" cellspacing="0" cellpadding>
+        <tr>
+            <th>姓名</th>
+            <th>科目</th>
+            <th>成绩</th>
+            <th>操作</th>
+        </tr>
+    </table><a href=""></a>
+    <script>
+        var btn = document.querySelector('button')
+        var div = document.querySelectorAll('div')
+        var table = document.querySelector('table')
+        btn.onclick = function () {
+            var tr = document.createElement('tr')
+            var td1 = document.createElement('td')
+            var td2 = document.createElement('td')
+            var td3 = document.createElement('td')
+            var td4 = document.createElement('td')
+            var a = document.createElement('a')
+            td1.innerText = div[0].children[1].value
+            td2.innerText = div[1].children[1].value
+            td3.innerText = div[2].children[1].value
+            a.innerHTML = '<a href="#">删除</a>'
+            table.appendChild(tr)
+            tr.appendChild(td1)
+            tr.appendChild(td2)
+            tr.appendChild(td3)
+            tr.appendChild(td4)
+            td4.appendChild(a)
+            tr.style.backgroundColor = 'pink'
+            td1.style.width = '100px'
+            a.onclick = function () {
+                table.removeChild(table.children[1])
+            }
+        }
+    </script>
+</body>
+
+</html>

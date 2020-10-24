@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        textarea {
+            vertical-align: bottom;
+        }
+    </style>
+</head>
+
+<body>
+    <textarea></textarea>
+    <button>发布</button>
+    <ul></ul>
+    <script>
+        var btn = document.querySelector('button');
+        var ul = document.querySelector('ul');
+        var text = document.querySelector('textarea');
+        btn.onclick = function () {
+            if (text.value != '') {
+                // 1.创建节点
+                var li = document.createElement('li');
+                li.style.backgroundColor = 'pink';
+                li.style.marginBottom = '10px';
+                li.innerHTML = text.value;  // 把文本域的内容赋值给 li里面的元素内容
+                text.value = '';
+                // 2.添加节点
+                // ul.appendChild(li);
+                ul.appendChild(li, ul.children[0]);
+            }
+        }
+
+        // 实现键盘事件 点击键盘某个键实现上面效果
+        // document.addEventListener('keyup',function(e){
+        //     if (e.keyCode == 13) {
+        //         var li = document.createElement('li');
+        //         li.style.backgroundColor = 'pink';
+        //         li.style.marginBottom = '10px';
+        //         li.innerHTML = text.value;  // 把文本域的内容赋值给 li里面的元素内容
+        //         text.value = '';
+        //         // 2.添加节点
+        //         // ul.appendChild(li);
+        //         ul.appendChild(li,ul.children[0]);
+        //     } 
+        // })
+        // btn.click() 将btn点击事件的程序调用，快捷操作
+        // console.log(text.value =='');
+        document.addEventListener(
+            'keydown', function (e) {
+                // console.log(e);
+                if (text.value !== '') {
+                    if (e.keyCode == 13) {
+                        btn.click();
+                        // console.log(e.keyCode);
+                    }
+                }
+                console.log(text.value ==='');
+                // console.log('');
+            }
+            
+        )
+    </script>
+</body>
+
+</html>

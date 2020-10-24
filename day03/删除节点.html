@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>删除</button>
+    <ul>
+        <li>小鞠1号</li>
+        <li>小鞠2号</li>
+        <li>小鞠3号</li>
+    </ul>
+    <script>
+        var ul = document.querySelector('ul')
+        var lis = ul.children
+        var btn = document.querySelector('button')
+        btn.onclick = function () {
+            // 删除节点node.removeChild(child)
+            ul.removeChild(ul.children[0])
+            // ul.removeChild(lis[0]);
+            if (ul.children.length === 0) {
+                btn.disabled = true
+            }
+        }
+    </script>
+</body>
+
+</html>

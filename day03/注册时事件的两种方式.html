@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>1</button>
+    <script>
+        var btn = document.querySelector('button')
+        // 1传统注册事件：绑定同一个事件只能执行一个事件处理程序，多个事件处理程序会覆盖,下面只弹出1
+        btn.onclick = function() {
+            alert('1213')
+        }
+        btn.onclick = function() {
+            alert('1')
+        }
+
+        // 事件监听注册事件：绑定同一个事件可以执行多个事件处理程序，下面会依次弹出1，1
+        btn.addEventListener('click',function(){
+            alert('1')
+        })
+        btn.addEventListener('click',function(){
+            alert('1')
+        })
+        // 坑：这里只会弹出一次1，因为两个fn是同一个函数，上面是两个内容一样的函数，所以上面会弹出两次1
+        fn = function() {
+            alert('1')
+        }
+        btn.addEventListener('click',fn)
+        btn.addEventListener('click',fn)
+    </script>
+</body>
+</html>

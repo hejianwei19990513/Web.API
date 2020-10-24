@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    1.document.write()创建元素
+    重新创造一个新的页面，只显示document.write()创造的元素（页面重绘）
+    2.innerHTML和documente.creatElement的区别：
+    innerHTML创造很多标签时，效率比documente.creatElement慢很多（原因慢在每次都要去document.body里面重新获取）
+    但是innerHTML创建多个元素效率更高（不拼接字符串，用数组形式拼接），但是结构稍微复杂
+    documente.creatElement创建多个元素效率稍低一点点，但是结构清晰
+</body>
+</html>
