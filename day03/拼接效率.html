@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 最不推荐的方法
+        var d1 = +new Date();
+
+        var str = '';
+        for (var i = 0; i < 1000; i++) {
+            // 这里之所以慢，慢在每次都要去 document.body 里面重新获取！
+            document.body.innerHTML +=
+                '<div style="width:100px; height:2px; border:1px solid blue;"></div>';
+        }
+        var d2 = +new Date(); // 1000ms
+        console.log(d2 - d1);
+
+
+
+// 解决方法 1，在外面准备一个空的字符串，每次循环的时候进行拼接，最后统一添加
+        var d1 = +new Date();
+        var str = '';
+        for (var i = 0; i < 1000; i++) {
+            str += '<div style="width:100px; height:2px; border:1px solid blue;"></div>';
+        }
+        // str 已经拼接好了 1000 个div，最后我在统一怼到 body 里面
+        document.body.innerHTML = str;
+        var d2 = +new Date(); // 2ms
+        console.log(d2 - d1);
+
+
+// 解决方法 2，外面建立一个空数组，每次循环的时候往数组里面添加元素，最后把数组转成字符串再给 body
+        var d1 = +new Date();
+        var arr = [];
+        for (var i = 0; i < 1000; i++) {
+            arr.push(
+                '<div style="width:100px; height:2px; border:1px solid blue;"></div>'
+            );
+        }
+        document.body.innerHTML = arr.join('');
+        var d2 = +new Date();
+        console.log(d2 - d1); // 2ms
+
+
+
+// 解决方法 3，通过 createElement，更灵活（可以直接给创建出来的 div 添加样式，绑定事件，...）
+        var d1 = +new Date();
+        for (var i = 0; i < 1000; i++) {
+            var div = document.createElement('div');
+            div.style.width = '100px';
+            div.style.height = '2px';
+            div.style.border = '1px solid blue';
+            document.body.appendChild(div);
+        }
+        var d2 = +new Date(); // 8ms
+        console.log(d2 - d1);
+
+
+// 解决方法 4：当数据量很大的时候，用文档碎片可以发挥作用，尤其在低版本的 IE 下
+        var d1 = +new Date();
+        // 准备好一个“篮子”，“文档碎片”
+        var frag = document.createDocumentFragment();
+        for (var i = 0; i < 1000; i++) {
+            // 每次把东西装到篮子里面
+            var div = document.createElement('div');
+            div.style.width = '100px';
+            div.style.height = '2px';
+            div.style.border = '1px solid blue';
+            // 每次往“篮子”里面装
+            frag.appendChild(div);
+        }
+        // 最后把篮子里面装好的统一添加
+        document.body.appendChild(frag);
+        var d2 = +new Date(); // 8ms
+        console.log(d2 - d1);
+
+
+
+        // 统计时间的另一种方式
+        console.time('耗时：');
+        // 准备好一个“篮子”，“文档碎片”
+        var frag = document.createDocumentFragment();
+        for (var i = 0; i < 1000; i++) {
+            // 每次把东西装到篮子里面
+            var div = document.createElement('div');
+            /* div.style.width = '100px';
+              div.style.height = '2px';
+              div.style.border = '1px solid blue'; */
+            div.style.cssText = 'width: 100px; height: 2px; border: 1px solid blue;';
+            frag.appendChild(div);
+        }
+        // 最后把篮子里面装好的统一添加
+        document.body.appendChild(frag);
+        console.timeEnd('耗时：');
+    </script>
+
+
+</body>
+
+</html>
