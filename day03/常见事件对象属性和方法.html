@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>div</div>
+    <ul>
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+    </ul>
+    <script>
+        var ul = document.querySelector('ul')
+        ul.onclick = function(e) {
+
+            // 指向我们点击的那个对象，如果点击li触发的ul事件，那么显示的是li
+            console.log(e.target);
+
+            // 指向我们的绑定对象
+            console.log(this);
+            console.log(e.currentTarget);//ie9+才支持
+        }
+    </script>
+</body>
+</html>
