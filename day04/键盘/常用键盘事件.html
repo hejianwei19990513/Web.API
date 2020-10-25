@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 鼠标弹起触发，
+        document.onkeyup = function(e) {
+            console.log('小鞠女神up');
+        }
+
+        // 鼠标按下触发，
+        document.onkeydown = function(e) {
+            console.log('小鞠女神down');
+        }
+
+        // 鼠标按下触发，不认识功能键，比如ctrl，shift，箭头，
+        document.onkeypress = function(e) {
+            console.log('小鞠女神press');
+        }
+        // 三个事件的执行顺序：先执行down，第二执行press，最后是up
+        </script>
+</body>
+</html>

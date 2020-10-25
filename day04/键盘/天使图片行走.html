@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="angel.gif" alt="">
+    <script>
+        var img = document.querySelector('img')
+        img.style.position = 'absolute'
+        img.style.left = '0px'
+        img.style.top = '0px'
+        document.addEventListener('keydown',function(e) {
+            if (e.keyCode === 37) {
+                img.style.left =  parseInt(img.style.left) -1 +'px'
+            }
+            if (e.keyCode === 38) {
+                img.style.top = parseInt(img.style.top) -1 +'px'
+            }
+            if (e.keyCode === 39) {
+                img.style.left =  parseInt(img.style.left) +1 +'px'
+            }
+            if (e.keyCode === 40) {
+                img.style.top = parseInt(img.style.top) +1 +'px'
+            }
+            // if (e.keyCode === 40)
+        })
+
+    </script>
+</body>
+</html>

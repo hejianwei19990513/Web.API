@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+        /* 媒体查询也可以隐藏 */
+        /* @media screen and (max-width:800px) {
+            div {
+                display: none;
+            }
+        } */
+    </style>
+</head>
+
+<body>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var div = document.querySelector('div')
+            div.style.display = window.innerWidth < 800 ? 'none' : 'block'
+            //当窗口带下发生改变的时候
+            window.onresize = function () {
+                // innerWidth窗口宽度
+                div.style.display = window.innerWidth < 800 ?
+                    'none' : 'block'
+            }
+        })
+    </script>
+    <div></div>
+</body>
+
+</html>

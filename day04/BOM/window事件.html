@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // onload等窗口所有加载完毕再实行，如果想多次执行window.onload，用winow.addEventListener方法,否则会覆盖
+
+        window.onload = function () {
+            // var d1 = +new Date()
+            var btn = document.querySelector('button')
+            var img = document.querySelector('img')
+            btn.onclick = function () {
+                alert('123')
+            }
+            // var d2 = +new Date()
+            // console.log(d2-d1);
+        }
+
+
+        // DOMDontentLoaded是DOM加载完毕，不包含图片，flash，css样式就能执行
+        window.addEventListener('DOMContentLoaded', function () {
+            // console.time('消耗：');
+            var btn = document.querySelector('button')
+            btn.onclick = function () {
+                alert('1212121')
+            }
+            // console.timeEnd('消耗：');
+        })
+    </script>
+</head>
+
+<body>
+    <button>按钮</button>
+</body>
+
+</html>
