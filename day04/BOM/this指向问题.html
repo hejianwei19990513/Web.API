@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>按钮</button>
+    <script>
+        var age = 20
+        // this指向谁？
+        // 全局作用域和普通函数中的this指向window，定时器里面也是指向window
+        console.log(this);
+
+        // 2.方法中的this指向谁
+        var m = {
+            age: 18,
+            sayHi: function () {
+                console.log(this.age);//这里指向m
+            }
+        }
+        var o = {
+            age: 18,
+            sayHi: function () {
+                console.log(this.age);//这里指向window
+            }
+        }
+        var temp = o.sayHi
+        temp()
+
+        // 3.【构造函数的this指的是实例对象】
+        function Fun() {
+            this.age = 18
+            console.log(this.age);
+        }
+        var fun = new Fun()
+    </script>
+</body>
+
+</html>

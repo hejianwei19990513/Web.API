@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            top: 300px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <button>按钮</button>
+    <script>
+        var div = document.querySelector('div')
+        var btn = document.querySelector('button')
+        function animate(obj, distant,callback) {
+            clearInterval(obj.time);
+            obj.time = setInterval(function () {
+                var step = (distant-obj.offsetLeft)/10
+                obj.style.left = obj.offsetLeft + Math.ceil(step) + 'px'
+                if (obj.offsetLeft >= distant) {
+                    clearInterval(obj.time)
+                    callback()
+                }
+                // console.log(obj.offsetLeft);//输出为296.4
+            }, 15)
+        }
+        btn.addEventListener('click',function(){
+            setInterval(function(){
+                animate(div,800,function(){
+                div.style.backgroundColor = 'red'
+                animate(div,0,function(){
+                    div.style.backgroundColor = 'green'
+                })
+            })
+            },2000)
+        })
+    </script>
+</body>
+
+</html>

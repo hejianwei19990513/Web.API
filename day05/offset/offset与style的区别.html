@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div>
+
+    </div>
+    <script>
+        var div = document.querySelector('div')
+
+        // 1.offsetWidth只能获取数据不能改变，而style.width只能获取行内样式值，但可以改变数据
+        // 2.offsetWidth获取的是数字，不带单位，而style.width获取的是字符串，带单位
+        // 3.offsetWidth带有border以及pandding算在内，而style.width获取的是不带border以及pandding的值
+        console.log(div.offsetWidth);
+        console.log(div.style.width);
+    </script>
+</body>
+</html>

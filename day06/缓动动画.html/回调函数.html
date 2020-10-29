@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            top: 300px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <button class="btn500">按钮500</button>
+    <button class="btn800">按钮800</button>
+    <script>
+        var div = document.querySelector('div')
+        var btn500 = document.querySelector('.btn500')
+        var btn800 = document.querySelector('.btn800')
+        function animate(obj, distant,callback) {
+            clearInterval(obj.time);
+            obj.time = setInterval(function () {
+                var step = (distant-obj.offsetLeft)/10
+                step = step > 0 ?Math.ceil(step):Math.floor(step)
+                obj.style.left = obj.offsetLeft + step + 'px'
+                if (obj.offsetLeft == distant) {
+                    clearInterval(obj.time)
+
+                    // 如果实参没写callback回调函数则不执行
+                    if(callback)callback()
+                }
+                console.log(obj.offsetLeft);//输出为296.4
+            }, 15)
+        }
+        btn500.addEventListener('click',function(){
+            animate(div,500)
+        })
+        btn800.addEventListener('click',function(){
+            div.style.backgroundColor = 'red'
+        })
+
+    </script>
+</body>
+
+</html>

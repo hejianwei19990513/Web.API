@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .father {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            margin-left: 100px;
+        }
+        .son {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            margin-top: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+    <script>
+        var father = document.querySelector('.father')
+        var son = document.querySelector('.son')
+
+        // 显示【有定位】的父级，如果没有就返回body
+        console.log(son.offsetParent);
+
+        // 偏移量：它以带有定位的父级元素为准，如果父级没有定位，则以body为准
+        console.log(son.offsetTop);//这里父亲有定位，显示0
+        console.log(son.offsetLeft);//这里父亲有定位，显示0
+
+        // 动态获取自身的宽度:在没有加弹性盒模型的时候，padding值和border会撑大盒子
+        console.log(son.offsetWidth);
+
+        // 动态获取自身的高度:在没有加弹性盒模型的时候，padding值和border会撑大盒子
+        console.log(son.offsetHeight);
+    </script>
+</body>
+
+</html>

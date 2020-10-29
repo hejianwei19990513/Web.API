@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            position: absolute;
+            top: 500px;
+            left: 500px;
+            /* translate移动的距离不算在offset里面; */
+            /* transform: translate(1000px,1000px); */
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+        var div = document.querySelector('div')
+        document.addEventListener('click',function(e) {
+         var obj = {
+             X:e.pageX - div.offsetLeft,
+             Y:e.pageY - div.offsetTop,
+         }
+         console.log(e.pageX,e.pageY);
+         console.log(div.offsetLeft,div.offsetTop);
+         console.log(obj);
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            position: absolute;
+            top: 0;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+        span {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <span></span>
+    <script>
+        var div = document.querySelector('div')
+        var span =document.querySelector('span')
+        function animate(element, distant) {
+            var time = setInterval(function () {
+                element.style.left = element.offsetLeft + 10 + 'px'
+                if (element.offsetLeft >= distant) {
+                    clearInterval(time)}
+            }, 50)
+        }
+        animate(div,300)
+        animate(span,500)
+    </script>
+</body>
+
+</html>

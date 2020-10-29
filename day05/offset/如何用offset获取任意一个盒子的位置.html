@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .yeye {
+            width: 400px;
+            height: 400px;
+            background-color: pink;
+            margin: 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .baba {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            position: absolute;
+            left: 10px;
+            overflow: hidden;
+        }
+
+        .erzi {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            margin: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="yeye">
+        <div class="baba">
+            <div class="erzi">
+
+            </div>
+        </div>
+    </div>
+    <script>
+        var erzi = document.querySelector('.erzi')
+        function fn(ele) {
+            var obj = {
+                left: ele.offsetTop,
+                top: ele.offsetLeft,
+            }
+            while (ele.offsetParent) {
+                obj.left += ele.offsetParent.offsetLeft;
+                obj.top += ele.offsetParent.offsetTop;
+                ele = ele.offsetParent
+            }
+            return obj
+        }
+        console.log(fn(erzi));
+    </script>
+</body>
+
+</html>

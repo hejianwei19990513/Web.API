@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+
+    </div>
+    <script>
+        var div = document.querySelector('div')
+        // 和client一样都是不包括边框，但是scroll得到的是内容的大小（当文字超出盒子时）
+        console.log(div.scrollHeight);
+        // 都是不包括边框
+        console.log(div.clientHeight);
+
+        // 滚动条下滑时，上面的内容被划伤去隐藏的大小
+        console.log(div.scrollTop);
+    </script>
+</body>
+</html>

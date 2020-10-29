@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="index.js">
+    <link rel="stylesheet" href="animate.js">
+</head>
+
+<body>
+    <div class="focus">
+        <ul class="img">
+            <li>
+                <img src="1.jpg" width="600" height="400">
+            </li>
+            <li>
+                <img src="2.jpg" width="600" height="400">
+            </li>
+            <li>
+                <img src="3.jpg" width="600" height="400">
+            </li>
+            <li>
+                <img src="4.jpg" width="600" height="400">
+            </li>
+        </ul>
+        <div class="btn-l">
+            <a href="javascript:;">
+                <</a>
+        </div>
+        <div class="btn-r">
+            <a href="javascript:;">></a>
+        </div>
+        <ul class="circle">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script>
+        function animate(obj, target, callback) {
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function () {
+                // var step = Math.ceil((target - obj.offsetLeft) / 10);
+                var step = (target - obj.offsetLeft) / 10;
+                step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                if (obj.offsetLeft == target) {
+                    clearInterval(obj.timer);
+                    callback && callback();
+                }
+                obj.style.left = obj.offsetLeft + step + 'px';
+
+            }, 30);
+        }
+
+        var btn_l = document.querySelector('.btn-l')
+        var btn_r = document.querySelector('.btn-r')
+        var img = document.querySelector('.img')
+        var cicle = document.querySelector('.circle')
+        var pic = document.querySelectorAll('img')
+        var lis = document.querySelectorAll('.circle li')
+        var arr = []
+        btn_l.addEventListener('click', function () {
+            if (img.offsetLeft == 0) {
+                animate(img, -1800);
+            }
+            if (img.offsetLeft == -600) {
+                animate(img, 0);
+            }
+            console.log(img.offsetLeft);
+            if (img.offsetLeft == -1200) {
+                animate(img, -600);
+            }
+            if (img.offsetLeft == -1800) {
+                animate(img, -1200);
+            }
+        })
+        btn_r.addEventListener('click', function () {
+            if (img.offsetLeft == 0) {
+                animate(img, -600);
+            }
+            if (img.offsetLeft == -600) {
+                animate(img, -1200);
+            }
+            console.log(img.offsetLeft);
+            if (img.offsetLeft == -1200) {
+                animate(img, -1800);
+            }
+            if (img.offsetLeft == -1800) {
+                animate(img, 0);
+            }
+        })
+        for(var i = 0 ; i < pic.length ; i++) {
+            lis[i].index = i
+            for(var i = 0 ; i < pic.length ; i++) {
+            lis[i].onmouseover =function () {
+                var num = this.index
+                // animate(img, -600*num);
+                console.log(num);
+            }
+        }
+
+        }
+    </script>
+</body>
+
+</html>

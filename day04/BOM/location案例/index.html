@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span {
+            color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div><span></span>欢迎您</div>
+    <script>
+        var div = document.querySelector('div')
+        var span = document.querySelector('span')
+        var str = location.search
+        var arr = str.substr(1).split('=');
+        span.innerText = decodeURIComponent(arr[1])
+    </script>
+</body>
+</html>

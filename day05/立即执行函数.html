@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 第一种写法:可以简化代码【注意：在写立即执行函数时，首尾都加分号】
+        (function(w,d){
+            w.innerWidth = 1900 +'px'
+        })(window,document);;
+
+        // 第二种写法：
+        (function(w,d){
+            w.innerWidth = 1900 + 'px'
+        }(window,document));
+    </script>
+</body>
+</html>

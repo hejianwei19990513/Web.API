@@ -17,10 +17,13 @@
     <script>
         window.addEventListener('DOMContentLoaded',function() {
             var div = document.querySelector('div')
-            setTimeout(function(){
+            // 取名为了关闭定时器
+            var time =setTimeout(function(){
                 div.style.display = 'block'
             },5000)
+            clearTimeout(time)
         })
+
     </script>
     <div>
 
